@@ -1,0 +1,126 @@
+:root {
+  --bg: #FAF9F7;
+  --text-primary: #111111;
+  --text-secondary: #6B6B6B;
+  --accent: #8B6F47;
+  --line: #E5E2DC;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Libre Baskerville', serif;
+  background: var(--bg);
+  color: var(--text-primary);
+}
+
+p { color: var(--text-secondary); }
+
+.section {
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HERO LOGO CENTRERING */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  max-width: 250px; /* standard / mobil */
+}
+
+/* Desktop: større logo */
+@media (min-width: 1024px) {
+  .hero-logo {
+    max-width: 350px;
+  }
+}
+
+/* Tekstblokke */
+.text-block { max-width: 42rem; margin: 0 auto; }
+
+.craftsmanship img,
+.works img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 4rem;
+}
+
+.site-nav {
+  position: fixed;
+  top: 0;
+  right: 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  background: rgba(250, 249, 247, 0.95);
+  padding: 1rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 999;
+}
+
+.site-nav.hidden { transform: translateY(-100%); opacity: 0; }
+
+.site-nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover { color: var(--accent); }
+
+.site-footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  padding: 4rem 1rem;
+}
+
+/* Formular */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+form input,
+form textarea {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  font-family: 'Libre Baskerville', serif;
+}
+
+form button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .section { padding-top: 6rem; padding-bottom: 6rem; }
+  .hero { min-height: 70vh; }
+}
