@@ -13,6 +13,8 @@ body {
   font-family: 'Libre Baskerville', serif;
   background: var(--bg);
   color: var(--text-primary);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 p { color: var(--text-secondary); }
@@ -54,7 +56,12 @@ p { color: var(--text-secondary); }
 }
 
 /* Tekstblokke */
-.text-block { max-width: 42rem; margin: 0 auto; }
+.text-block {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
 
 .craftsmanship img,
 .works img {
@@ -65,27 +72,29 @@ p { color: var(--text-secondary); }
 
 .site-nav {
   position: fixed;
-  top: 0;
-  right: 2rem;
+  top: 1rem; /* lidt luft fra toppen */
+  right: 50%;
+  transform: translateX(50%); /* centrerer menuen horisontalt */
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   color: var(--text-primary);
   background: rgba(250, 249, 247, 0.95);
-  padding: 1rem;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  padding: 0.5rem 1rem; /* lige omkring links */
+  display: flex;
+  gap: 1.5rem; /* mellem linkene */
+  border-radius: 0.25rem; /* subtil afrunding */
   z-index: 999;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.site-nav.hidden { transform: translateY(-100%); opacity: 0; }
-
 .site-nav a {
-  margin-left: 1.5rem;
   text-decoration: none;
   color: var(--text-primary);
   transition: color 0.2s ease;
 }
 
 .site-nav a:hover { color: var(--accent); }
+
 
 .site-footer {
   text-align: center;
@@ -94,33 +103,90 @@ p { color: var(--text-secondary); }
   padding: 4rem 1rem;
 }
 
-/* Formular */
+/* Kontaktformular */
+.contact {
+  background: #FAF9F7;
+  padding: 6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact .text-block {
+  max-width: 42rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
   max-width: 30rem;
+  width: 100%;
   margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--text-primary);
 }
 
 form input,
 form textarea {
-  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
   padding: 0.75rem;
   border: 1px solid var(--line);
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  resize: vertical;
+  width: 100%;
 }
+
+form textarea { min-height: 120px; }
 
 form button {
   background: var(--accent);
   color: #fff;
   border: none;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
 }
 
+form button:hover { background: #7a5e3f; }
+
+/* MOBIL-OPTIMERING */
 @media (max-width: 768px) {
-  .section { padding-top: 6rem; padding-bottom: 6rem; }
+  body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .text-block {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  form { padding-left: 1rem; padding-right: 1rem; }
+
+  form input,
+  form textarea,
+  form button { font-size: 0.95rem; }
+
   .hero { min-height: 70vh; }
 }
