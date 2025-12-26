@@ -28,6 +28,7 @@ body {
   color: var(--text-primary);
   line-height: 1.8;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -37,17 +38,16 @@ html {
    ========================= */
 
 h2 {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-weight: 400;
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
   letter-spacing: 0.02em;
 }
 
 p {
   font-size: 1rem;
-  max-width: 38rem;
-  margin-bottom: 1.5rem;
   line-height: 1.8;
+  margin-bottom: 1.8rem;
 }
 
 p.subtle {
@@ -85,7 +85,6 @@ nav a {
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  
 }
 
 /* =========================
@@ -93,7 +92,7 @@ nav a {
    ========================= */
 
 .hero {
-  min-height: 90vh; /* lidt højere for mere luksusluft */
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,49 +100,26 @@ nav a {
 }
 
 .hero img {
-  width: 320px;      /* større på desktop */
-  max-width: 75vw;   /* skalerer naturligt på mindre skærme */
+  width: 320px;
+  max-width: 75vw;
 }
-s
 
 /* =========================
    SECTIONS
    ========================= */
 
 .section {
-  padding-top: 14rem;   /* mere luft øverst */
-  padding-bottom: 14rem; /* mere luft nederst */
+  padding-top: 14rem;
+  padding-bottom: 14rem;
 }
 
 .section:first-of-type {
-  margin-top: 8rem; /* ekstra luft efter hero */
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
-  }
-
-  .section:first-of-type {
-    margin-top: 5rem;
-  }
+  margin-top: 10rem;
 }
 
 .text-block {
   max-width: 40rem;
-  margin: 0 auto 5rem;
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+  margin: 0 auto 6rem;
 }
 
 /* =========================
@@ -151,25 +127,19 @@ s
    ========================= */
 
 .image-stack {
-  width: 90vw;       /* næsten fuld viewport bredde */
-  max-width: 1400px; /* begrænser for meget store skærme */
+  width: 90vw;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .image-stack img {
-  width: 100%;       /* fylder containeren */
+  width: 100%;
   display: block;
-  margin-bottom: 5rem; /* vertikal luft mellem billeder */
+  margin-bottom: 6rem;
 }
 
 .image-stack img:last-child {
-  margin-bottom: 0;  /* ingen ekstra luft efter sidste billede */
-}
-
-@media (max-width: 768px) {
-  .image-stack img {
-    margin-bottom: 3rem; /* mindre luft på mobil */
-  }
+  margin-bottom: 0;
 }
 
 /* =========================
@@ -212,8 +182,8 @@ form button {
 }
 
 form button:hover {
-  background: #000;           /* lidt mørkere på hover */
-  transform: translateY(-2px); /* subtil opad-effekt */
+  background: #000;
+  transform: translateY(-2px);
 }
 
 /* =========================
@@ -222,7 +192,7 @@ form button:hover {
 
 footer {
   display: flex;
-  flex-direction: column;   /* linjer under hinanden */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2rem 1rem;
@@ -234,12 +204,27 @@ footer {
 }
 
 footer .footer-line1 {
-  margin-bottom: 0.3rem;    /* lidt afstand til anden linje */
-  font-weight: 500;         /* lidt mere fremhævet */
+  margin-bottom: 0.3rem;
+  font-weight: 500;
 }
 
 footer .footer-line2 {
   font-weight: 400;
+}
+
+/* =========================
+   FADE-IN ELEMENTER
+   ========================= */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 /* =========================
@@ -248,28 +233,28 @@ footer .footer-line2 {
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 65vh; /* mindre hero på mobil */
+    min-height: 65vh;
   }
 
   .hero img {
-    width: 200px;     /* reduceret logo på mobil */
+    width: 200px;
     max-width: 70vw;
   }
-}
+
   .section {
-    padding: 8rem 1.5rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
   }
 
   .text-block {
-    margin-bottom: 3.5rem;
+    margin-bottom: 4rem;
   }
 
   .image-stack img {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
-@media (max-width: 768px) {
   nav ul {
-    gap: 1.2rem; /* mindre afstand mellem punkterne på mobil */
+    gap: 1.2rem; /* mindre afstand mellem menupunkterne på mobil */
   }
 }
