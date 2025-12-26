@@ -84,7 +84,7 @@ nav a {
    ========================= */
 
 .hero {
-  min-height: 80vh;
+  min-height: 85vh; /* finjusteret luft */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +101,7 @@ nav a {
    ========================= */
 
 .section {
-  padding: 10rem 2rem;
+  padding: 12rem 2rem; /* mere luft top og bund */
 }
 
 .text-block {
@@ -110,19 +110,19 @@ nav a {
 }
 
 /* =========================
-   BILLEDER – VERTIKAL EDITORIAL
+   BILLEDER – VERTIKAL & BRED
    ========================= */
 
-..image-stack {
-  max-width: 1400px; /* fylder mere på brede skærme */
-  width: 90vw;        /* skalerer naturligt på forskellige skærme */
+.image-stack {
+  width: 90vw;       /* næsten fuld viewport */
+  max-width: 1400px; /* begrænser ultra-wide skærme */
   margin: 0 auto;
 }
 
 .image-stack img {
   width: 100%;
   display: block;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem; /* mere luft mellem billeder */
 }
 
 .image-stack img:last-child {
@@ -189,7 +189,7 @@ footer {
   }
 
   .section {
-    padding: 6rem 1.5rem;
+    padding: 8rem 1.5rem;
   }
 
   .text-block {
@@ -197,6 +197,6 @@ footer {
   }
 
   .image-stack img {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
   }
 }
