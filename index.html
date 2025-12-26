@@ -1,117 +1,84 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Knapværk</title>
-
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knapværk – Test</title>
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-  <!-- NAV -->
+  <!-- NAVIGATION -->
   <nav>
     <ul>
-      <li><a href="#haandvaerk">HÅNDVÆRK</a></li>
-      <li><a href="#vaerker">VÆRKER</a></li>
-      <li><a href="#kontakt">KONTAKT</a></li>
+      <li><a href="#hero">Start</a></li>
+      <li><a href="#works">Udvalgte værker</a></li>
+      <li><a href="#contact">Kontakt</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <img src="assets/images/logo.svg" alt="Knapværk logo">
   </section>
 
-  <!-- HÅNDVÆRK -->
-  <section id="haandvaerk" class="section">
+  <!-- UDVÆLGTE VÆRKER -->
+  <section class="section" id="works">
     <div class="text-block">
-
-      <h2>Håndværk og proces</h2>
-
-      <p class="subtle">
-        Introducerende tekst. Denne linje sætter kontekst og stemning uden at forklare for meget.
-      </p>
-
-      <p>
-        Brødtekst. Her udfoldes fortællingen i et roligt tempo. Fokus er materialer,
-        metode og den måde arbejdet tager form over tid. Teksten må gerne være
-        reflekterende, men skal forblive konkret.
-      </p>
-
-      <p>
-        Supplerende brødtekst. Bruges til at tilføje dybde, uden at gentage.
-        Dette niveau skal kunne fjernes uden at ødelægge helheden.
-      </p>
-
+      <h2>Udvalgte værker</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel urna nec odio tincidunt fermentum.</p>
     </div>
 
     <div class="image-stack">
-      <img src="assets/images/placeholder1.jpg" alt="">
-      <img src="assets/images/placeholder2.jpg" alt="">
-      <img src="assets/images/placeholder3.jpg" alt="">
+      <img src="assets/images/placeholder1.jpg" alt="Udvalgt værk 1">
+      <img src="assets/images/placeholder2.jpg" alt="Udvalgt værk 2">
+      <img src="assets/images/placeholder3.jpg" alt="Udvalgt værk 3">
     </div>
   </section>
 
-  <!-- VÆRKER -->
-  <section id="vaerker" class="section">
+  <!-- HISTORIE / PROCESSER -->
+  <section class="section" id="story">
     <div class="text-block">
-
-      <h2>Udvalgte værker</h2>
-
-      <p class="subtle">
-        Kort introduktion. Forklarer hvordan værkerne skal læses – ikke hvad de er.
-      </p>
-
-      <p>
-        Brødtekst. Dette afsnit giver mulighed for at beskrive intention,
-        variation eller overordnede principper uden at blive katalog-agtig.
-      </p>
-
+      <h2>Historien bag Knapværk</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Curabitur vitae lorem ut massa ullamcorper aliquet.</p>
     </div>
 
     <div class="image-stack">
-      <img src="assets/images/placeholder4.jpg" alt="">
-      <img src="assets/images/placeholder5.jpg" alt="">
-      <img src="assets/images/placeholder6.jpg" alt="">
+      <img src="assets/images/placeholder1.jpg" alt="Proces 1">
+      <img src="assets/images/placeholder2.jpg" alt="Proces 2">
+      <img src="assets/images/placeholder3.jpg" alt="Proces 3">
     </div>
   </section>
 
   <!-- KONTAKT -->
-  <section id="kontakt" class="section">
+  <section class="section" id="contact">
     <div class="text-block">
-
       <h2>Kontakt</h2>
-
-      <p class="subtle">
-        Afsluttende tekst. Invitation frem for opfordring.
-      </p>
-
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut libero vel nulla dapibus scelerisque.</p>
     </div>
 
-    <form action="https://formspree.io/f/DIT_ID_HER" method="POST">
-      <input type="text" name="name" placeholder="Navn" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="text" name="subject" placeholder="Emne">
-      <textarea name="message" placeholder="Besked" required></textarea>
-      <button type="submit">Send besked</button>
+    <form action="https://formspree.io/f/mnjadppw" method="POST">
+      <label>
+        Din email:
+        <input type="email" name="email" required>
+      </label>
+      <label>
+        Emne:
+        <input type="text" name="subject">
+      </label>
+      <label>
+        Besked:
+        <textarea name="message" required></textarea>
+      </label>
+      <button type="submit">Send</button>
     </form>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>
-      Knapværk · CVR 00 00 00 00 · Adresse · By · Danmark
-    </p>
+    <p>Knapværk ApS – CVR: 12345678 – Adresse: Eksempelgade 1, 1234 København</p>
   </footer>
 
 </body>
 </html>
-

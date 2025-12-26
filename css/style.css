@@ -84,7 +84,7 @@ nav a {
    ========================= */
 
 .hero {
-  min-height: 85vh; /* finjusteret luft */
+  min-height: 90vh; /* lidt højere for mere luksusluft */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,9 +92,10 @@ nav a {
 }
 
 .hero img {
-  width: 260px;
-  max-width: 70vw;
+  width: 320px;      /* større på desktop */
+  max-width: 75vw;   /* skalerer naturligt på mindre skærme */
 }
+s
 
 /* =========================
    SECTIONS
@@ -102,6 +103,10 @@ nav a {
 
 .section {
   padding: 12rem 2rem; /* mere luft top og bund */
+}
+
+.section:first-of-type {
+  margin-top: 6rem; /* ekstra luft under hero */
 }
 
 .text-block {
@@ -183,11 +188,15 @@ footer {
    ========================= */
 
 @media (max-width: 768px) {
-
   .hero {
-    min-height: 60vh;
+    min-height: 65vh; /* mindre hero på mobil */
   }
 
+  .hero img {
+    width: 200px;     /* reduceret logo på mobil */
+    max-width: 70vw;
+  }
+}
   .section {
     padding: 8rem 1.5rem;
   }
