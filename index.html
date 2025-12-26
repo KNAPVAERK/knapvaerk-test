@@ -7,57 +7,21 @@
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
 </head>
-
-<script>
-  // DYNAMISK NAVIGATION
-    let lastScroll = 0;
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll <= 0) {
-        nav.style.transform = 'translateY(0)';
-        return;
-      }
-      if (currentScroll > lastScroll) {
-        nav.style.transform = 'translateY(-100%)';
-      } else {
-        nav.style.transform = 'translateY(0)';
-      }
-      lastScroll = currentScroll;
-    });
-
-    // FADE-IN PÅ SCROLL
-    document.addEventListener("DOMContentLoaded", function() {
-      const faders = document.querySelectorAll('.fade-in');
-      const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-      const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        });
-      }, appearOptions);
-      faders.forEach(fader => appearOnScroll.observe(fader));
-    });
-</script>
-
 <body>
 
-  
   <!-- NAVIGATION -->
   <nav id="main-nav">
-  <ul>
-    <li><a href="#hero">START</a></li>
-    <li><a href="#works">VÆRKER</a></li>
-    <li><a href="#craft">HÅNDVÆRK</a></li>
-    <li><a href="#contact">KONTAKT</a></li>
-  </ul>
-</nav>
-
+    <ul>
+      <li><a href="#hero">START</a></li>
+      <li><a href="#works">VÆRKER</a></li>
+      <li><a href="#craft">HÅNDVÆRK</a></li>
+      <li><a href="#contact">KONTAKT</a></li>
+    </ul>
+  </nav>
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <img src="assets/images/logo.svg" alt="Knapværk logo">
+    <img src="assets/images/logo.svg" alt="Knapværk" logo class="fade-in">
   </section>
 
   <!-- UDVÆLGTE VÆRKER -->
@@ -118,5 +82,6 @@
     <div class="footer-line2">Adresse: Eksempelgade 1, 1234 København</div>
   </footer>
 
+  <script src="js/main.js"></script>
 </body>
 </html>
