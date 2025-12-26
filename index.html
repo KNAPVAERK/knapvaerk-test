@@ -7,8 +7,31 @@
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
 </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => appearOnScroll.observe(fader));
+});
+</script>
+
 <body>
 
+  
   <!-- NAVIGATION -->
   <nav>
     <ul>
@@ -32,7 +55,7 @@
       <p class="subtle">Dette er eksempel på subtil tekst. Her kan du vise små noter eller sekundær info.</p>
     </div>
 
-    <div class="image-stack">
+    <div class="image-stack fade-in">
       <img src="assets/images/placeholder1.jpg" alt="Udvalgt værk 1">
       <img src="assets/images/placeholder2.jpg" alt="Udvalgt værk 2">
       <img src="assets/images/placeholder3.jpg" alt="Udvalgt værk 3">
@@ -46,7 +69,7 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Curabitur vitae lorem ut massa ullamcorper aliquet.</p>
     </div>
 
-    <div class="image-stack">
+    <div class="image-stack fade-in">
       <img src="assets/images/placeholder1.jpg" alt="Håndværk 1">
       <img src="assets/images/placeholder2.jpg" alt="Håndværk 2">
     </div>
@@ -72,7 +95,7 @@
         Besked:
         <textarea name="message" required></textarea>
       </label>
-      <button type="submit">Send</button>
+      <button type="submit">Send</button>s
     </form>
   </section>
 
@@ -81,6 +104,23 @@
     <div class="footer-line1">Knapværk ApS – CVR: 12345678</div>
     <div class="footer-line2">Adresse: Eksempelgade 1, 1234 København</div>
   </footer>
+  
+let lastScroll = 0;
+const nav = document.getElementById('main-nav');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  if (currentScroll <= 0) {
+    nav.style.transform = 'translateY(0)';
+    return;
+  }
+  if (currentScroll > lastScroll) {
+    nav.style.transform = 'translateY(-100%)';
+  } else {
+    nav.style.transform = 'translateY(0)';
+  }
+  lastScroll = currentScroll;
+});
 
 </body>
 </html>
