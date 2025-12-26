@@ -119,19 +119,25 @@ s
    ========================= */
 
 .image-stack {
-  width: 90vw;       /* næsten fuld viewport */
-  max-width: 1400px; /* begrænser ultra-wide skærme */
+  width: 90vw;       /* næsten fuld viewport bredde */
+  max-width: 1400px; /* begrænser for meget store skærme */
   margin: 0 auto;
 }
 
 .image-stack img {
-  width: 100%;
+  width: 100%;       /* fylder containeren */
   display: block;
-  margin-bottom: 5rem; /* mere luft mellem billeder */
+  margin-bottom: 5rem; /* vertikal luft mellem billeder */
 }
 
 .image-stack img:last-child {
-  margin-bottom: 0;
+  margin-bottom: 0;  /* ingen ekstra luft efter sidste billede */
+}
+
+@media (max-width: 768px) {
+  .image-stack img {
+    margin-bottom: 3rem; /* mindre luft på mobil */
+  }
 }
 
 /* =========================
@@ -177,10 +183,25 @@ form button {
    ========================= */
 
 footer {
-  padding: 4rem 2rem;
-  text-align: center;
-  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;   /* linjer under hinanden */
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
+  line-height: 1.5;
+  width: 100%;
+  text-align: center;
+}
+
+footer .footer-line1 {
+  margin-bottom: 0.3rem;    /* lidt afstand til anden linje */
+  font-weight: 500;         /* lidt mere fremhævet */
+}
+
+footer .footer-line2 {
+  font-weight: 400;
 }
 
 /* =========================
@@ -208,4 +229,4 @@ footer {
   .image-stack img {
     margin-bottom: 3rem;
   }
-}
+
