@@ -28,15 +28,18 @@ body {
   color: var(--text-primary);
   line-height: 1.8;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 /* =========================
    TYPOGRAFI
    ========================= */
 
 h2 {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 400;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
   letter-spacing: 0.02em;
 }
 
@@ -44,6 +47,7 @@ p {
   font-size: 1rem;
   max-width: 38rem;
   margin-bottom: 1.5rem;
+  line-height: 1.8;
 }
 
 p.subtle {
@@ -102,11 +106,23 @@ s
    ========================= */
 
 .section {
-  padding: 12rem 2rem; /* mere luft top og bund */
+  padding-top: 14rem;   /* mere luft øverst */
+  padding-bottom: 14rem; /* mere luft nederst */
 }
 
 .section:first-of-type {
-  margin-top: 6rem; /* ekstra luft under hero */
+  margin-top: 8rem; /* ekstra luft efter hero */
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  .section:first-of-type {
+    margin-top: 5rem;
+  }
 }
 
 .text-block {
