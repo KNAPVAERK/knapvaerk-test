@@ -127,11 +127,26 @@ form button {
 form button:hover { background:#000; transform:translateY(-2px); }
 
 footer {
-  display:flex; flex-direction:column; justify-content:center; align-items:center;
-  padding:2rem 1rem; font-size:0.75rem; color:var(--text-secondary); line-height:1.5; width:100%; text-align:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  width: 100%;
+  text-align: center;
 }
-footer .footer-line1 { margin-bottom:0.3rem; font-weight:500; }
-footer .footer-line2 { font-weight:400; }
+
+footer .footer-line1 {
+  margin-bottom: 0.3rem;
+  font-weight: 500;  /* lidt mere fremhævet */
+}
+
+footer .footer-line2 {
+  font-weight: 400;
+}
 
 @media(max-width:768px) {
   .hero { min-height:65vh; }
