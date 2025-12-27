@@ -10,12 +10,28 @@
   box-sizing: border-box;
 }
 
+/* =========================
+   BODY/FLEX LAYOUT FOR STICKY FOOTER
+   ========================= */
+html, body {
+  height: 100%;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: 'Libre Baskerville', serif;
   background: var(--bg);
   color: var(--text-primary);
   line-height: 1.8;
 }
+
+/* Hovedindhold fylder fleksibelt */
+main, .sections-wrapper {
+  flex: 1;
+}
+
 html { scroll-behavior: smooth; }
 
 h2 { font-size: 1.6rem; font-weight: 400; margin-bottom: 1.8rem; letter-spacing: 0.02em; }
@@ -32,9 +48,7 @@ nav {
 }
 nav ul { display:flex; justify-content:center; gap:2rem; list-style:none; margin:0; padding:0; }
 nav a { text-decoration:none; color:var(--text-primary); font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; }
-nav a.active {
-  position: relative;
-}
+nav a.active { position: relative; }
 nav a.active::after {
   content: "";
   position: absolute;
@@ -55,7 +69,7 @@ nav a.active::after {
 }
 
 .hero img {
-  width: 900px;         /* 50% større på desktop */
+  width: 900px;         
   max-width: 75vw;
   transition: opacity 1s ease, transform 1s ease;
 }
@@ -91,9 +105,7 @@ nav a.active::after {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.image-stack img:last-child { 
-  margin-bottom: 0;  
-}
+.image-stack img:last-child { margin-bottom: 0; }
 
 .image-stack img:hover {
   transform: scale(1.01);
@@ -125,6 +137,7 @@ footer {
   line-height: 1.5;
   width: 100%;
   text-align: center;
+  margin-top: auto; /* sikrer footer sidder nederst */
 }
 
 footer .footer-line1 { margin-bottom: 0.3rem; font-weight: 500; }
@@ -134,8 +147,8 @@ footer .footer-line2 { font-weight: 400; }
    MOBILOPTIMERING
    ========================= */
 @media(max-width:768px) {
-  .hero { min-height:80vh; }              /* lidt mindre hero */
-  .hero img { width: 480px; max-width:70vw; } /* mindre logo, stadig centralt */
+  .hero { min-height:80vh; }
+  .hero img { width: 480px; max-width:70vw; }
   .section { padding-top:8rem; padding-bottom:8rem; }
   .section:first-of-type { margin-top:5rem; }
   .text-block { margin-bottom:3rem; max-width:90vw; }

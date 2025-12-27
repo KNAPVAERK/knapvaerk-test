@@ -19,63 +19,70 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <img src="assets/images/logo.svg" alt="Knapværk" logo class="fade-in">
-  </section>
+  <!-- WRAPPER FOR ALT INDHOLD MELLEM NAV & FOOTER -->
+  <div class="content-wrapper">
 
-  <!-- UDVÆLGTE VÆRKER -->
-  <section class="section" id="works">
-    <div class="text-block">
-      <h2>Udvalgte værker</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel urna nec odio tincidunt fermentum.</p>
-      <p class="subtle">Dette er eksempel på subtil tekst. Her kan du vise små noter eller sekundær info.</p>
-    </div>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <img src="assets/images/logo.svg" alt="Knapværk logo" class="fade-in">
+    </section>
 
-<div class="image-stack fade-in">
-  <img src="assets/images/1.jpg" alt="Udvalgt værk 1" loading="lazy">
-  <img src="assets/images/placeholder2.jpg" alt="Udvalgt værk 2" loading="lazy">
-  <img src="assets/images/placeholder3.jpg" alt="Udvalgt værk 3" loading="lazy">
-  <img src="assets/images/placeholder1.jpg" alt="Udvalgt værk 4" loading="lazy">
-</div>
+    <!-- UDVÆLGTE VÆRKER -->
+    <section class="section" id="works">
+      <div class="text-block">
+        <h2>Udvalgte værker</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel urna nec odio tincidunt fermentum.</p>
+        <p class="subtle">Dette er eksempel på subtil tekst. Her kan du vise små noter eller sekundær info.</p>
+      </div>
 
-  <!-- HÅNDVÆRK -->
-  <section class="section" id="craft">
-    <div class="text-block">
-      <h2>Håndværk</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Curabitur vitae lorem ut massa ullamcorper aliquet.</p>
-    </div>
+      <div class="image-stack fade-in">
+        <img src="assets/images/1.jpg" alt="Udvalgt værk 1" loading="lazy">
+        <img src="assets/images/placeholder2.jpg" alt="Udvalgt værk 2" loading="lazy">
+        <img src="assets/images/placeholder3.jpg" alt="Udvalgt værk 3" loading="lazy">
+        <img src="assets/images/placeholder1.jpg" alt="Udvalgt værk 4" loading="lazy">
+      </div>
+    </section>
 
-    <div class="image-stack fade-in">
-  <img src="assets/images/1.jpg" alt="Håndværk 1" loading="lazy">
-  <img src="assets/images/1.jpg" alt="Håndværk 2" loading="lazy">
-  <img src="assets/images/1.jpg" alt="Håndværk 3" loading="lazy">
-</div>
-  </section>
+    <!-- HÅNDVÆRK -->
+    <section class="section" id="craft">
+      <div class="text-block">
+        <h2>Håndværk</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Curabitur vitae lorem ut massa ullamcorper aliquet.</p>
+      </div>
 
-  <!-- KONTAKT -->
-  <section class="section" id="contact">
-    <div class="text-block">
-      <h2>Kontakt</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut libero vel nulla dapibus scelerisque.</p>
-    </div>
+      <div class="image-stack fade-in">
+        <img src="assets/images/1.jpg" alt="Håndværk 1" loading="lazy">
+        <img src="assets/images/1.jpg" alt="Håndværk 2" loading="lazy">
+        <img src="assets/images/1.jpg" alt="Håndværk 3" loading="lazy">
+      </div>
+    </section>
 
-    <form id="contact-form" action="https://formspree.io/f/mnjadppw" method="POST">
-  <label>Din email:
-    <input type="email" name="email" required>
-  </label>
-  <label>Emne:
-    <input type="text" name="subject">
-  </label>
-  <label>Besked:
-    <textarea name="message" required></textarea>
-  </label>
-  <button type="submit">Send</button>
-</form>
+    <!-- KONTAKT -->
+    <section class="section" id="contact">
+      <div class="text-block">
+        <h2>Kontakt</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut libero vel nulla dapibus scelerisque.</p>
+      </div>
 
-<div id="thank-you-message" style="display:none; text-align:center; margin-top:1.5rem; font-weight:500;">
-  Tak for din besked!
-</div>
+      <form id="contact-form" action="https://formspree.io/f/mnjadppw" method="POST">
+        <label>Din email:
+          <input type="email" name="email" required>
+        </label>
+        <label>Emne:
+          <input type="text" name="subject">
+        </label>
+        <label>Besked:
+          <textarea name="message" required></textarea>
+        </label>
+        <button type="submit">Send</button>
+      </form>
+
+      <div id="thank-you-message" style="display:none; text-align:center; margin-top:1.5rem; font-weight:500;">
+        Tak for din besked!
+      </div>
+    </section>
+
+  </div> <!-- END OF CONTENT-WRAPPER -->
 
   <!-- FOOTER -->
   <footer>
