@@ -88,3 +88,40 @@ navLinks.forEach(link => {
     }
   });
 });
+
+
+/* =========================
+   KONTAKTFORMULAR - TAK FOR HENVENDELSEN
+   ========================= */
+
+const form = document.getElementById('contact-form');
+const thankYou = document.getElementById('thank-you-message');
+
+if (form && thankYou) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        thankYou.style.display = 'block';
+        // subtil fade-in
+        thankYou.style.opacity = 0;
+        thankYou.style.transition = 'opacity 0.8s ease';
+        requestAnimationFrame(() => { thankYou.style.opacity = 1; });
+      } else {
+        alert('Noget gik galt. Prøv igen.');
+      }
+    } catch (error) {
+      alert('Noget gik galt. Prøv igen.');
+    }
+  });
+}

@@ -134,8 +134,8 @@ footer .footer-line2 { font-weight: 400; }
    MOBILOPTIMERING
    ========================= */
 @media(max-width:768px) {
-  .hero { min-height:70vh; }              /* lidt mindre hero */
-  .hero img { width:300px; max-width:70vw; } /* mindre logo, stadig centralt */
+  .hero { min-height:80vh; }              /* lidt mindre hero */
+  .hero img { width: 480px; max-width:70vw; } /* mindre logo, stadig centralt */
   .section { padding-top:8rem; padding-bottom:8rem; }
   .section:first-of-type { margin-top:5rem; }
   .text-block { margin-bottom:3rem; max-width:90vw; }

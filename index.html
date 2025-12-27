@@ -60,22 +60,22 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut libero vel nulla dapibus scelerisque.</p>
     </div>
 
-    <form action="https://formspree.io/f/mnjadppw" method="POST">
-      <label>
-        Din email:
-        <input type="email" name="email" required>
-      </label>
-      <label>
-        Emne:
-        <input type="text" name="subject">
-      </label>
-      <label>
-        Besked:
-        <textarea name="message" required></textarea>
-      </label>
-      <button type="submit">Send</button>
-    </form>
-  </section>
+    <form id="contact-form" action="https://formspree.io/f/mnjadppw" method="POST">
+  <label>Din email:
+    <input type="email" name="email" required>
+  </label>
+  <label>Emne:
+    <input type="text" name="subject">
+  </label>
+  <label>Besked:
+    <textarea name="message" required></textarea>
+  </label>
+  <button type="submit">Send</button>
+</form>
+
+<div id="thank-you-message" style="display:none; text-align:center; margin-top:1.5rem; font-weight:500;">
+  Tak for din besked!
+</div>
 
   <!-- FOOTER -->
   <footer>
