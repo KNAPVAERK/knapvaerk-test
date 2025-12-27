@@ -35,7 +35,6 @@ nav a { text-decoration:none; color:var(--text-primary); font-size:0.8rem; lette
 nav a.active {
   position: relative;
 }
-
 nav a.active::after {
   content: "";
   position: absolute;
@@ -52,12 +51,11 @@ nav a.active::after {
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* Subtil gradient fra lys til lidt mørkere tone */
   background: linear-gradient(180deg, rgba(247,246,244,1) 0%, rgba(240,239,237,1) 100%);
 }
 
 .hero img {
-  width: 320px;
+  width: 900px;         /* 50% større på desktop */
   max-width: 75vw;
   transition: opacity 1s ease, transform 1s ease;
 }
@@ -72,13 +70,6 @@ nav a.active::after {
 .hero.visible {
   opacity: 1 !important;
   transform: translateY(0) !important;
-}
-
-@media (max-width: 768px) {
-  .hero img {
-    width: 200px;
-    max-width: 70vw;
-  }
 }
 
 .section { padding-top:14rem; padding-bottom:14rem; }
@@ -97,8 +88,6 @@ nav a.active::after {
   margin-bottom: 5rem; 
   aspect-ratio: 3 / 4; 
   object-fit: cover;
-
-  /* Subtil hover-effekt */
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -107,10 +96,9 @@ nav a.active::after {
 }
 
 .image-stack img:hover {
-  transform: scale(1.01);   /* let zoom */
-  opacity: 0.95;            /* subtil feedback */
+  transform: scale(1.01);
+  opacity: 0.95;
 }
-
 
 form {
   max-width:32rem; margin:0 auto; padding:3rem;
@@ -139,21 +127,20 @@ footer {
   text-align: center;
 }
 
-footer .footer-line1 {
-  margin-bottom: 0.3rem;
-  font-weight: 500;  /* lidt mere fremhævet */
-}
+footer .footer-line1 { margin-bottom: 0.3rem; font-weight: 500; }
+footer .footer-line2 { font-weight: 400; }
 
-footer .footer-line2 {
-  font-weight: 400;
-}
-
+/* =========================
+   MOBILOPTIMERING
+   ========================= */
 @media(max-width:768px) {
-  .hero { min-height:65vh; }
-  .hero img { width:200px; max-width:70vw; }
-  .section { padding-top:10rem; padding-bottom:10rem; }
+  .hero { min-height:70vh; }              /* lidt mindre hero */
+  .hero img { width:300px; max-width:70vw; } /* mindre logo, stadig centralt */
+  .section { padding-top:8rem; padding-bottom:8rem; }
   .section:first-of-type { margin-top:5rem; }
-  .text-block { margin-bottom:3.5rem; }
-  .image-stack img { margin-bottom:3rem; }
-  nav ul { gap:1.2rem; }
+  .text-block { margin-bottom:3rem; max-width:90vw; }
+  .image-stack img { margin-bottom:2.5rem; }
+  nav ul { gap:1rem; }
+  form { padding:2rem; }
+  form button { padding:0.6rem 1.5rem; font-size:0.9rem; }
 }
