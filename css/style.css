@@ -2,7 +2,13 @@
   --bg: #f7f6f4;
   --text-primary: #1a1a1a;
   --text-secondary: #6f6f6f;
+  --space-xs: 0.75rem;
+  --space-sm: 1.5rem;
+  --space-md: 3rem;
+  --space-lg: 6rem;
+  --space-xl: 10rem;
 }
+
 
 * {
   margin: 0;
@@ -26,6 +32,13 @@ body {
   color: var(--text-primary);
   line-height: 1.75;
 }
+p {
+  color: #1a1a1a;
+
+}
+p.subtle {
+  color: #7a7a7a;
+}
 
 /* Hovedindhold fylder fleksibelt */
 main, .sections-wrapper {
@@ -34,10 +47,20 @@ main, .sections-wrapper {
 
 html { scroll-behavior: smooth; }
 
-h2 { font-size: 1.6rem; font-weight: 400; margin-bottom: 2.2rem; letter-spacing: 0.02em; }
-p { font-size: 1rem; max-width: 38rem; margin-bottom: 2rem; line-height: 1.8; }
-p.subtle { font-size: 0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 2.5rem;line-height: 1.6}
-  
+h2 { font-size: 1.8rem; font-weight: 400; margin-bottom: var(--space-sm); letter-spacing: 0.04em; line-height: 1.3;}
+p { font-size: 1rem; max-width: 38rem; margin-bottom: var(--space-sm); line-height: 1.65; }
+p.subtle { font-size: 0.85rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;line-height: 1.6}
+.text-meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+  .sc {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+}
 
 nav {
   position: fixed; top: 0; width: 100%;
@@ -48,7 +71,7 @@ nav {
   transition: transform 0.3s ease, background 0.3s ease;
 }
 nav ul { display:flex; justify-content:center; gap:2rem; list-style:none; margin:0; padding:0; }
-nav a { text-decoration:none; color:var(--text-primary); font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; }
+nav a { text-decoration:none; color:var(--text-primary); font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase; }
 nav a.active { position: relative; }
 nav a.active::after {
   content: "";
@@ -71,6 +94,17 @@ nav a:hover {
 nav a.active {
   opacity: 1;
 }
+nav a.active::after {
+  opacity: 0.6;
+}
+
+.nav-label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+}
+
 
 .hero {
   min-height: 95vh;
@@ -99,10 +133,20 @@ nav a.active {
   transform: translateY(0) !important;
 }
 
-.section { padding-top:14rem; padding-bottom:14rem; }
+.section { padding-top:var(--space-xl); padding-bottom:var(--space-xl); }
 .section:first-of-type { margin-top:8rem; }
 .text-block { max-width:36rem; margin:0 auto 5rem; }
+.text-block h2 + p {
+  margin-top: 0.5rem;
 
+}
+.section {
+  background: var(--bg);
+}
+
+.section.subtle-bg {
+  background: rgba(0,0,0,0.015);
+}
 .image-stack { 
   width: 90vw; 
   max-width: 1400px; 
@@ -112,41 +156,107 @@ nav a.active {
 .image-stack img { 
   width: 100%; 
   display: block; 
-  margin-bottom: 5rem; 
   aspect-ratio: 3 / 4; 
   object-fit: cover;
+  background: #f2f1ef;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  margin-bottom: 5rem;
 }
 
-.image-stack img:last-child { margin-bottom: 0; }
+/* Første billede fremhæves */
+.image-stack img:first-child {
+  max-width: 1400px;
+  transform: scale(1.02);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+/* Resten af billederne */
+.image-stack img:not(:first-child) {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Subtil hover-effekt */
 .image-stack img:hover {
   transform: scale(1.01);
   opacity: 0.95;
 }
 
-form {
-  max-width:32rem; margin:0 auto; padding:3rem;
-  background:#fff; border-radius:6px;
+/* Ekstra margin for hvert 3. billede */
+.image-stack img:nth-child(3n) {
+  margin-bottom: 8rem;
 }
-form input, form textarea { width:100%; margin-bottom:1rem; padding:0.75rem; border:1px solid #ddd; font-family:inherit; font-size:0.9rem; }
-form textarea { min-height:140px; resize:vertical; }
-form button {
-  margin-top:1rem; padding:0.75rem 2rem;
-  background:var(--text-primary); color:#fff; border:none;
-  cursor:pointer; font-family:inherit; letter-spacing:0.05em;
-  transition: transform 0.25s ease, background 0.25s ease;
-}
-form button:hover { background:#000; transform:translateY(-2px); }
 
+.image-stack img:last-child { 
+  margin-bottom: 0;  
+}
+
+/* Formular */
 #contact form {
+  max-width: 32rem;
+  margin: 0 auto;
   padding: 2rem;
+  background: #fff;
+  border-radius: 6px;
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  font-family: inherit;
+}
+
+#contact textarea {
+  min-height: 140px;
+  resize: vertical;
 }
 
 #contact button {
   padding: 0.6rem 1.4rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+  background: var(--text-primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+#contact button:hover {
+  background: #000;
+  transform: translateY(-2px);
+}
+
+/* FEJL & SUCCES ANIMATION */
+#form-error-message,
+#thank-you-message {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#form-error-message {
+  color: #b00020;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+#thank-you-message {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 footer {
@@ -172,6 +282,13 @@ footer {
 
 footer .footer-line1 {
   letter-spacing: 0.12em;
+
+  color: var(--text-primary);
+}
+
+footer .footer-line2 {
+  color: var(--text-secondary);
+
 }
 
 /* =========================
@@ -180,16 +297,33 @@ footer .footer-line1 {
 @media(max-width:768px) {
   .hero { min-height:80vh; }
   .hero img { width: 600px; max-width:70vw; }
-  .section { padding-top:8rem; padding-bottom:8rem; }
+  .section { padding-top:var(--space-lg); padding-bottom:var(--space-lg); }
   .section:first-of-type { margin-top:5rem; }
   .text-block { margin-bottom:3rem; max-width:90vw; }
-  .image-stack img { margin-bottom:2.5rem; }
+  .image-stack img { margin-bottom:var(--space-md); }
+  @media(max-width: 768px) {
+  .image-stack img:first-child {
+    max-width: 90vw;
+  }
+  .image-stack img:not(:first-child) {
+    max-width: 85vw;
+    
+  }
+  
+}
+
   nav ul { gap:1rem; }
   form { padding:2rem; }
   form button { padding:0.6rem 1.5rem; font-size:0.9rem; }
   p {line-height: 1.85; }
- h2 {margin-bottom: 1.8rem;}
+ h2 {margin-bottom: var(--space-sm);}
+ @media (max-width: 768px) {
+ 
+    
 
+    
+
+  }
 }
 
 /* =========================

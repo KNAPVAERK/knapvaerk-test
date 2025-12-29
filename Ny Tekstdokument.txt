@@ -2,7 +2,13 @@
   --bg: #f7f6f4;
   --text-primary: #1a1a1a;
   --text-secondary: #6f6f6f;
+  --space-xs: 0.75rem;
+  --space-sm: 1.5rem;
+  --space-md: 3rem;
+  --space-lg: 6rem;
+  --space-xl: 10rem;
 }
+
 
 * {
   margin: 0;
@@ -10,17 +16,51 @@
   box-sizing: border-box;
 }
 
+/* =========================
+   BODY/FLEX LAYOUT FOR STICKY FOOTER
+   ========================= */
+html, body {
+  height: 100%;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: 'Libre Baskerville', serif;
   background: var(--bg);
   color: var(--text-primary);
-  line-height: 1.8;
+  line-height: 1.75;
 }
+p {
+  color: #1a1a1a;
+
+}
+p.subtle {
+  color: #7a7a7a;
+}
+
+/* Hovedindhold fylder fleksibelt */
+main, .sections-wrapper {
+  flex: 1;
+}
+
 html { scroll-behavior: smooth; }
 
-h2 { font-size: 1.6rem; font-weight: 400; margin-bottom: 1.8rem; letter-spacing: 0.02em; }
-p { font-size: 1rem; max-width: 38rem; margin-bottom: 1.5rem; line-height: 1.8; }
-p.subtle { font-size: 0.9rem; color: var(--text-secondary); }
+h2 { font-size: 1.8rem; font-weight: 400; margin-bottom: var(--space-sm); letter-spacing: 0.04em; line-height: 1.3;}
+p { font-size: 1rem; max-width: 38rem; margin-bottom: var(--space-sm); line-height: 1.65; }
+p.subtle { font-size: 0.85rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;line-height: 1.6}
+.text-meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+  .sc {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+}
 
 nav {
   position: fixed; top: 0; width: 100%;
@@ -31,11 +71,8 @@ nav {
   transition: transform 0.3s ease, background 0.3s ease;
 }
 nav ul { display:flex; justify-content:center; gap:2rem; list-style:none; margin:0; padding:0; }
-nav a { text-decoration:none; color:var(--text-primary); font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; }
-nav a.active {
-  position: relative;
-}
-
+nav a { text-decoration:none; color:var(--text-primary); font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase; }
+nav a.active { position: relative; }
 nav a.active::after {
   content: "";
   position: absolute;
@@ -45,20 +82,42 @@ nav a.active::after {
   height: 1px;
   background: var(--text-primary);
 }
+nav a {
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
+}
+
+nav a:hover {
+  opacity: 0.85;
+}
+
+nav a.active {
+  opacity: 1;
+}
+nav a.active::after {
+  opacity: 0.6;
+}
+
+.nav-label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+}
+
 
 .hero {
-  min-height: 90vh;
+  min-height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* Subtil gradient fra lys til lidt mørkere tone */
   background: linear-gradient(180deg, rgba(247,246,244,1) 0%, rgba(240,239,237,1) 100%);
 }
 
 .hero img {
-  width: 600px;
-  max-width: 75vw;
+  width: 900px;         
+  max-width: 68vw;
   transition: opacity 1s ease, transform 1s ease;
 }
 
@@ -74,16 +133,21 @@ nav a.active::after {
   transform: translateY(0) !important;
 }
 
-@media (max-width: 768px) {
-  .hero img {
-    width: 200px;
-    max-width: 70vw;
-  }
+.section { padding-top:var(--space-xl); padding-bottom:var(--space-xl); }
+.section:first-of-type { margin-top:8rem; }
+.text-block { max-width:36rem; margin:0 auto 5rem; }
+.text-block h2 + p {
+  margin-top: 0.5rem;
+
+}
+.section {
+  background: var(--bg);
 }
 
-.section { padding-top:14rem; padding-bottom:14rem; }
-.section:first-of-type { margin-top:8rem; }
-.text-block { max-width:40rem; margin:0 auto 5rem; }
+.section:nth-of-type(even) {
+  background: rgba(0,0,0,0.015);
+}
+
 
 .image-stack { 
   width: 90vw; 
@@ -94,23 +158,36 @@ nav a.active::after {
 .image-stack img { 
   width: 100%; 
   display: block; 
-  margin-bottom: 5rem; 
+  margin-bottom: var(--space-md); 
   aspect-ratio: 3 / 4; 
   object-fit: cover;
-
-  /* Subtil hover-effekt */
   transition: transform 0.3s ease, opacity 0.3s ease;
+  background: #f2f1ef;
+  margin-bottom: 5rem;
 }
 
-.image-stack img:last-child { 
-  margin-bottom: 0;  
+.image-stack img:nth-child(3n) {
+  margin-bottom: 8rem;
 }
+
+.image-stack img:last-child { margin-bottom: 0; }
 
 .image-stack img:hover {
-  transform: scale(1.01);   /* let zoom */
-  opacity: 0.95;            /* subtil feedback */
+  transform: scale(1.01);
+  opacity: 0.95;
+}
+.image-stack img:first-child {
+  max-width: 1400px;
 }
 
+.image-stack img:not(:first-child) {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.image-stack img:nth-child(2) {
+  aspect-ratio: 4 / 3;
+}
 
 form {
   max-width:32rem; margin:0 auto; padding:3rem;
@@ -121,10 +198,23 @@ form textarea { min-height:140px; resize:vertical; }
 form button {
   margin-top:1rem; padding:0.75rem 2rem;
   background:var(--text-primary); color:#fff; border:none;
-  cursor:pointer; font-family:inherit; letter-spacing:0.05em;
+  cursor:pointer; font-family:inherit; letter-spacing:0.12em;
   transition: transform 0.25s ease, background 0.25s ease;
+  font-size: 0.75rem;
+  text-transform: uppercase;
 }
 form button:hover { background:#000; transform:translateY(-2px); }
+
+
+#contact form {
+  padding: 2rem;
+}
+
+#contact button {
+  padding: 0.6rem 1.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
 
 footer {
   display: flex;
@@ -137,24 +227,122 @@ footer {
   line-height: 1.5;
   width: 100%;
   text-align: center;
+  margin-top: auto; /* sikrer footer sidder nederst */
+}
+
+footer .footer-line1 { margin-bottom: 0.3rem; font-weight: 500; }
+footer .footer-line2 { font-weight: 400; }
+
+footer {
+  font-size: 0.7rem;
 }
 
 footer .footer-line1 {
-  margin-bottom: 0.3rem;
-  font-weight: 500;  /* lidt mere fremhævet */
+  letter-spacing: 0.12em;
+
+  color: var(--text-primary);
 }
 
 footer .footer-line2 {
-  font-weight: 400;
+  color: var(--text-secondary);
+
+}
+/* Grundlæggende styling for alle grid-items */
+.grid-item {
+  position: relative;
+  overflow: hidden; /* Vigtigt: Skjuler billedet når det flytter sig */
+  background: #eee; /* Placeholder farve mens billedet loader */
 }
 
+.grid-item img {
+  width: 100%;
+  height: 110%; /* Gør billedet lidt højere så der er plads til at flytte det */
+  object-fit: cover;
+  display: block;
+  will-change: transform; /* Optimerer performance for animation */
+}
+
+/* Grid-layout for Værker (Desktop) */
+@media (min-width: 1024px) {
+  .grid-works {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-md);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+  .grid-works .wide { grid-column: 2 / 12; aspect-ratio: 16 / 9; margin-bottom: var(--space-lg); }
+  .grid-works .tall { grid-column: 1 / 6; aspect-ratio: 2 / 3; }
+  .grid-works .small { grid-column: 8 / 12; aspect-ratio: 1 / 1; align-self: center; }
+  @media (min-width: 1024px) {
+  .grid-craft {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-md);
+    max-width: 1100px; /* En anelse smallere end Works for at skabe intimitet */
+    margin: 0 auto;
+    padding-bottom: var(--space-xl);
+  }
+
+  /* Det store billede fylder venstre side */
+  .grid-craft .craft-large {
+    grid-column: 1 / 8;
+    aspect-ratio: 4 / 5;
+  }
+
+  /* Det lille billede svæver til højre og er skubbet ned */
+  .grid-craft .craft-small {
+    grid-column: 9 / 12;
+    aspect-ratio: 1 / 1;
+    margin-top: var(--space-xl);
+    align-self: start;
+  }
+
+  /* Det mellemste billede bryder midten og ligger lavere end de andre */
+  .grid-craft .craft-medium {
+    grid-column: 5 / 10;
+    aspect-ratio: 3 / 2;
+    margin-top: -4rem; /* Overlapper visuelt det store billede en smule i højden */
+    z-index: 2;
+  }
+}
+}
+/* =========================
+   MOBILOPTIMERING
+   ========================= */
 @media(max-width:768px) {
-  .hero { min-height:65vh; }
-  .hero img { width:350px; max-width:70vw; }
-  .section { padding-top:10rem; padding-bottom:10rem; }
+  .hero { min-height:80vh; }
+  .hero img { width: 600px; max-width:70vw; }
+  .section { padding-top:var(--space-lg); padding-bottom:var(--space-lg); }
   .section:first-of-type { margin-top:5rem; }
-  .text-block { margin-bottom:3.5rem; }
-  .image-stack img { margin-bottom:3rem; }
-  nav ul { gap:1.2rem; }
+  .text-block { margin-bottom:3rem; max-width:90vw; }
+  .image-stack img { margin-bottom:var(--space-md); }
+  nav ul { gap:1rem; }
+  form { padding:2rem; }
+  form button { padding:0.6rem 1.5rem; font-size:0.9rem; }
+  p {line-height: 1.85; }
+ h2 {margin-bottom: var(--space-sm);}
+ @media (max-width: 768px) {
+  .image-stack img:nth-child(3n) {
+    margin-bottom: 5rem;
+  }
 }
 
+}
+
+/* =========================
+   HELPER CLASSES / ACCESSIBILITY
+   ========================= */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

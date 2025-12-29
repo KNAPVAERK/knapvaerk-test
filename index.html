@@ -15,7 +15,7 @@
   <meta property="og:description" content="Oplev Knapværks udvalgte værker og håndværk. Luksusdesign med æstetik og kvalitet i fokus.">
   <meta property="og:image" content="assets/images/og-image.jpg">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pwww.knapvaerk.com">
+  <meta property="og:url" content="https://www.knapvaerk.com">
 
   <!-- STYLESHEET -->
   <link rel="stylesheet" href="css/style.css">
@@ -29,7 +29,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-9861B8M034'); <!-- Erstat med dit GA4 måle-id -->
+    gtag('config', 'G-9861B8M034'); 
   </script>
 
 <!-- Favicon standard -->
@@ -70,15 +70,16 @@
     <!-- HERO -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
       <h1 id="hero-title" class="visually-hidden">Knapværk – Logo og brand</h1>
-      <img src="assets/images/logo.svg" alt="Knapværk logo" class="fade-in">
+      <img src="assets/images/logo1.svg" alt="Knapværk logo" class="fade-in">
     </section>
 
     <!-- UDVÆLGTE VÆRKER -->
     <section class="section" id="works" aria-labelledby="works-title">
       <div class="text-block">
-        <h2 id="works-title">Udvalgte værker</h2>
+        <h2 id="works-title"><span class=sc>Udvalgte værker</span></h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel urna nec odio tincidunt fermentum.</p>
         <p class="subtle">TESSST</p>
+        <div class="text-meta">Håndlavet i Danmark</div>
       </div>
 
       <div class="image-stack fade-in">
@@ -92,41 +93,43 @@
     <!-- HÅNDVÆRK -->
     <section class="section" id="craft" aria-labelledby="craft-title">
       <div class="text-block">
-        <h2 id="craft-title">Håndværk</h2>
+        <h2 id="craft-title"><span class=sc>Håndværk</span></h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Curabitur vitae lorem ut massa ullamcorper aliquet.</p>
       </div>
+  </div>
 
       <div class="image-stack fade-in">
         <img src="assets/images/h1.jpg" alt="Håndlavet knap i træ, variant 1" loading="lazy">
         <img src="assets/images/h2.jpg" alt="Håndlavet knap i træ, variant 2" loading="lazy">
         <img src="assets/images/h3.jpg" alt="Håndlavet knap i træ, variant 3" loading="lazy">
+        <img src="assets/images/h1.jpg" alt="Håndlavet knap i træ, variant 4" loading="lazy">
       </div>
-    </section>
+</section>
+  
 
-    <!-- KONTAKT -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
-      <div class="text-block">
-        <h2 id="contact-title">Kontakt</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut libero vel nulla dapibus scelerisque.</p>
-      </div>
+<section class="section subtle-bg" id="contact" aria-labelledby="contact-title">
+  <div class="text-block">
+    <h2 id="contact-title">Kontakt</h2>
+    <p>Alle henvendelser behandles personligt.</p>
+  </div>
 
-      <form id="contact-form" action="https://formspree.io/f/mnjadppw" method="POST" aria-label="Kontaktformular">
-        <label for="email">Din email:</label>
-        <input type="email" id="email" name="email" required>
+  <form id="contact-form" action="https://formspree.io/f/mnjadppw" method="POST">
+    <label>Din email
+      <input type="email" name="email" required>
+    </label>
+    <label>Emne
+      <input type="text" name="subject">
+    </label>
+    <label>Besked
+      <textarea name="message" required></textarea>
+    </label>
 
-        <label for="subject">Emne:</label>
-        <input type="text" id="subject" name="subject">
+    <div id="form-error-message">Fejlmeddelelse</div>
+    <button type="submit">Send</button>
+  </form>
 
-        <label for="message">Besked:</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <button type="submit">Send</button>
-      </form>
-
-      <div id="thank-you-message" style="display:none; text-align:center; margin-top:1.5rem; font-weight:500;">
-        Tak for din besked!
-      </div>
-    </section>
+  <div id="thank-you-message">Tak for din besked!</div>
+</section>
 
   </div> <!-- END OF CONTENT-WRAPPER -->
 
