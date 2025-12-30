@@ -1,3 +1,4 @@
+
 /* =========================
    HERO FADE-IN
    ========================= */
@@ -7,22 +8,24 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================
-   SCROLL-LOGIK
+   SCROLL-LOGIK (UPDATED - Task 1.1)
    ========================= */
 const sections = document.querySelectorAll('.hero, .section');
 const faders = document.querySelectorAll('.fade-in');
 const nav = document.getElementById('main-nav');
 const navLinks = document.querySelectorAll('#main-nav a');
 
-let lastScroll = 0;
 let ticking = false;
 
 function onScroll() {
   const scrollY = window.pageYOffset;
 
-  // NAV: skjul/vis
-  nav.style.transform = (scrollY > lastScroll && scrollY > 120) ? 'translateY(-100%)' : 'translateY(0)';
-  lastScroll = scrollY;
+  // NAV: Add 'scrolled' class when scrolled past threshold (no longer hides)
+  if (scrollY > 120) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
 
   // ACTIVE STATE
   sections.forEach(section => {
@@ -66,42 +69,63 @@ navLinks.forEach(link => {
 });
 
 /* =========================
-   KONTAKTFORMULAR - FEJL & SUCCES
+   CONTACT FORM HANDLER
    ========================= */
+
 const form = document.getElementById('contact-form');
-const formError = document.getElementById('form-error-message');
-const thankYou = document.getElementById('thank-you-message');
+const statusBox = document.getElementById('form-status');
 
-function showMessage(el, delay = 4000) {
-  el.classList.add('visible');
-  setTimeout(() => el.classList.remove('visible'), delay);
-}
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const button = form.querySelector('button');
+    button.classList.add('is-loading');
 
-form.addEventListener('submit', async e => {
-  e.preventDefault();
+    statusBox.className = '';
+    statusBox.textContent = '';
+    statusBox.classList.remove('visible');
 
-  formError.classList.remove('visible');
-  formError.textContent = '';
-  thankYou.classList.remove('visible');
+    const formData = new FormData(form);
 
-  const data = new FormData(form);
+    try {
+      const res = await fetch('https://formspree.io/f/mnjadppw', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
 
-  try {
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
+      if (res.ok) {
+        button.classList.remove('is-loading');
 
-    if (response.ok) {
-      form.style.display = 'none';
-      showMessage(thankYou);
-    } else {
-      formError.textContent = "Noget gik galt. Prøv venligst igen.";
-      showMessage(formError);
+        // Smooth transition: wait a moment before hiding fields
+        setTimeout(() => {
+          // Hide form fields but keep the form container visible
+          const formFields = form.querySelectorAll('.form-field, .submit-btn');
+          formFields.forEach(field => {
+            field.style.opacity = '0';
+            field.style.transform = 'translateY(-10px)';
+            field.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          });
+
+          // After fields fade out, hide them and show success message
+          setTimeout(() => {
+            formFields.forEach(field => field.style.display = 'none');
+            
+            // Show success message
+            statusBox.textContent = 'Tak for din besked.';
+            statusBox.classList.add('success', 'visible');
+          }, 400);
+        }, 300);
+      } else {
+        throw new Error();
+      }
+
+    } catch {
+      button.classList.remove('is-loading');
+
+      statusBox.textContent = 'Noget gik galt. Prøv igen.';
+      statusBox.classList.add('error', 'visible');
     }
-  } catch (err) {
-    formError.textContent = "Noget gik galt. Prøv venligst igen.";
-    showMessage(formError);
-  }
-});
+  });
+}

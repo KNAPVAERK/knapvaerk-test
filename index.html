@@ -60,7 +60,7 @@
       <li><a href="#hero">START</a></li>
       <li><a href="#works">VÆRKER</a></li>
       <li><a href="#craft">HÅNDVÆRK</a></li>
-      <li><a href="#contact">KONTAKT</a></li>
+      <li><a href="#inquiry">KONTAKT</a></li>
     </ul>
   </nav>
 
@@ -68,19 +68,22 @@
   <div class="content-wrapper">
 
     <!-- HERO -->
+
     <section class="hero" id="hero" aria-labelledby="hero-title">
       <h1 id="hero-title" class="visually-hidden">Knapværk – Logo og brand</h1>
       <img src="assets/images/logo1.svg" alt="Knapværk logo" class="fade-in">
+       
     </section>
 
-    <!-- UDVÆLGTE VÆRKER -->
-    <section class="section" id="works" aria-labelledby="works-title">
-      <div class="text-block">
-        <h2 id="works-title"><span class=sc>Udvalgte værker</span></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel urna nec odio tincidunt fermentum.</p>
-        <p class="subtle">TESSST</p>
-        <div class="text-meta">Håndlavet i Danmark</div>
-      </div>
+    <!-- UDVALGTE VÆRKER -->
+  
+      <section class="section subtle-bg" id="works" data-section="01" aria-labelledby="works-title">
+  <div class="text-block">
+    <span class="subheading">Kollektion 2024</span>
+    <h2>Værker</h2>
+    <p class="lead">Hver knap er håndlavet med omhu og præcision.</p>
+    <p class="subtle">Fremstillet i Danmark af naturlige materialer</p>
+  </div>
 
       <div class="image-stack fade-in">
         <img src="assets/images/uv1.jpg" alt="Håndlavet knap i træ, variant 1" loading="lazy">
@@ -91,11 +94,14 @@
     </section>
 
     <!-- HÅNDVÆRK -->
-    <section class="section" id="craft" aria-labelledby="craft-title">
-      <div class="text-block">
-        <h2 id="craft-title"><span class=sc>Håndværk</span></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Curabitur vitae lorem ut massa ullamcorper aliquet.</p>
-      </div>
+ 
+
+         <section class="section subtle-bg" id="craft" aria-labelledby="craft-title">
+  <div class="text-block">
+    <span class="subheading">Værktøj</span>
+    <h2>Håndværk</h2>
+    <p class="lead">Hver knap er håndlavet med omhu og præcision.</p>
+    <p class="subtle">Fremstillet i Danmark af naturlige materialer</p>
   </div>
 
       <div class="image-stack fade-in">
@@ -107,29 +113,35 @@
 </section>
   
 
-<section class="section subtle-bg" id="contact" aria-labelledby="contact-title">
+<section class="section subtle-bg" data-section="03" id="inquiry">
   <div class="text-block">
-    <h2 id="contact-title">Kontakt</h2>
-    <p>Alle henvendelser behandles personligt.</p>
+    <h2>Kontakt</h2>
+
+    <p>
+      KNAPVÆRK arbejder i små serier og indgår i et begrænset antal samarbejder.
+    </p>
+
+    <p class="subtle">
+      For at vurdere om der er et match, bedes du sende en mail med følgende oplysninger:
+    </p>
+
+    <ul class="inquiry-list">
+      <li>Kort præsentation af dig eller dit brand</li>
+      <li>Formålet med forespørgslen</li>
+      <li>Forventet volumen</li>
+      <li>Tidsramme</li>
+    </ul>
+
+    <p class="text-meta">
+      info@knapvaerk.com
+    </p>
+
+    <p class="subtle">
+      Alle henvendelser gennemgås løbende.
+    </p>
   </div>
-
-  <form id="contact-form" action="https://formspree.io/f/mnjadppw" method="POST">
-    <label>Din email
-      <input type="email" name="email" required>
-    </label>
-    <label>Emne
-      <input type="text" name="subject">
-    </label>
-    <label>Besked
-      <textarea name="message" required></textarea>
-    </label>
-
-    <div id="form-error-message">Fejlmeddelelse</div>
-    <button type="submit">Send</button>
-  </form>
-
-  <div id="thank-you-message">Tak for din besked!</div>
 </section>
+
 
   </div> <!-- END OF CONTENT-WRAPPER -->
 
